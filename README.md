@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+#  TalentFlow – A Mini Hiring Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TalentFlow is a **React + Vite-based mini hiring platform** that allows users to manage **job listings, candidates, and assessments** in one place.  
+It is built using a **modern front-end tech stack** — React, Tailwind CSS, MSW, Dexie, and Faker.js — and deployed on **Netlify** for seamless hosting and performance.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Overview
 
-## React Compiler
+**TalentFlow** simulates a lightweight hiring portal where:
+- HR managers can **add and view job openings**.
+- Browse a **list of potential candidates** with skill-based search.
+- Manage **assessments** for different job roles.
+- Uses **Mock Service Worker (MSW)** to simulate APIs in development.
+- Includes **fallback mock data** for Netlify production build.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The UI features a **modern orange–white gradient theme** with responsive and elegant styling.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Category | Technology Used |
+|-----------|-----------------|
+| **Frontend Framework** | [React 19](https://react.dev/) + [Vite](https://vitejs.dev/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Mock API** | [MSW (Mock Service Worker)](https://mswjs.io/) |
+| **Database (Local)** | [Dexie.js (IndexedDB Wrapper)](https://dexie.org/) |
+| **Fake Data Generator** | [Faker.js](https://fakerjs.dev/) |
+| **Routing** | [React Router DOM](https://reactrouter.com/) |
+| **Deployment** | [Netlify](https://www.netlify.com/) |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+##  Key Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+###  Job Listings
+- Displays a list of job openings (Frontend Developer, Backend Engineer, etc.)
+- Allows adding new job titles dynamically.
+- Uses **mock API calls** and **fallback local data** for offline/production support.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+###  Candidate Management
+- Displays candidate profiles with names, experience, and skills.
+- Provides **search filtering** by name or skill keyword.
+- Uses responsive grid layout with Tailwind hover effects.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+###  Assessments Module
+- Lists multiple test categories with difficulty and duration.
+- Includes “Start Test 🚀” button for each assessment.
+- Designed with animated gradient backgrounds and shadows.
+
+###  User Interface Highlights
+- **Orange–White gradient theme** across all pages.
+- **Glass-like cards** with hover scaling and shadows.
+- Fully **responsive** on desktop and mobile.
+- Clean and consistent typography.
+
+---
+
+##  Folder Structure
+talentflow/
+├── public/
+├── src/
+│ ├── api/
+│ │ └── msw.js # Mock API handlers
+│ ├── db/
+│ │ └── index.js # IndexedDB (Dexie) setup
+│ ├── pages/
+│ │ ├── JobsPage.jsx # Job listings page
+│ │ ├── CandidatesPage.jsx # Candidate profiles page
+│ │ └── AssessmentsPage.jsx # Assessments module
+│ ├── App.jsx # App routes and layout
+│ └── main.jsx # Entry point
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── vite.config.js
+
